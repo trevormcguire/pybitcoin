@@ -66,22 +66,28 @@ class Point256(Point):
         curve = Curve256()
         super().__init__(x, y, curve)
 
-
     def __repr__(self) -> str:
         if self.x is None:
             return "secp256k1 Point(INF)"
         return f"secp256k1 Point({self.x.num}, {self.y.num}) along {self.curve}"
 
     def __rmul__(self, coef: int) -> Point:
-        coef = coef % self.x.p #we can mod by p because pG = 0
+        coef = coef % P #we can mod by p because pG = 0
         return super().__rmul__(coef)
+
+#REFERENCE FOR BELOW CONSTANTS: https://en.bitcoin.it/wiki/Secp256k1
+
+#P is the order of the finite field in which bitcoin operates
+P = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F 
 
 #G is the generating point 
 G = Point256(
-    0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,
-    0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8,
+    0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798,
+    0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8,
     )
+    
 #N is the order of G
-N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
+N = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
 
-
+#cofactor of the curve -- 1 means we are working on the entire curve (there is no subgroup) of order p
+H = 1

@@ -127,8 +127,7 @@ class EllipCurve(object):
             self.p = p
         self.a = a
         self.b = b
-        
-
+    
     def __repr__(self):
         m = self.a.num if isinstance(self.a, Element) else self.a
         b = self.b.num if isinstance(self.b, Element) else self.b
@@ -170,8 +169,13 @@ class Point(object):
         return f"Point({self.x.num}, {self.y.num}) along {self.curve}"
 
     def __eq__(self, p: Point) -> bool:
-        return self.x == p.x and self.y == p.y and self.curve.a == p.curve.a and self.curve.b == p.curve.b
-    
+        num_objs = len(list(filter(None, [self.curve, p.curve])))#both are INF
+        if num_objs == 0:
+            return True 
+        elif num_objs == 2:
+            return self.x == p.x and self.y == p.y and self.curve.a == p.curve.a and self.curve.b == p.curve.b
+        return False
+
     def __ne__(self, p: Point) -> bool:
         return not self == p
     
@@ -230,12 +234,12 @@ class Point(object):
 
     def __rmul__(self, coef: int) -> Point:
         """
+        Double Add Double algorithm
         Double until we are past how large the coefficient can be
         7 * Point
         """
         assert coef >= 0 and isinstance(coef, int), f"'coef' must be a positive integer. You passed: {coef}"
-        res = INF
-        curr = self
+        res, curr = INF, self
         while coef:
             if coef & 1: #check if rightmost bit is a 1
                 res += curr
@@ -244,7 +248,8 @@ class Point(object):
         return res
 
     def __assert_same_curve(self, p: Point):
-        assert self.curve.a == p.curve.a and self.curve.b == p.curve.b, f"Points {self} and {p} are not on same curve."
+        if self.curve and p.curve:
+            assert self.curve.a == p.curve.a and self.curve.b == p.curve.b, f"Points {self} and {p} are not on same curve."
 
 
 
