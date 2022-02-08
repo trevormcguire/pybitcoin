@@ -1,6 +1,6 @@
 # Bitcoin From Scratch 
 
-A while ago I decided I really wanted to understand how Bitcoin works. As someone who has always been interested in crypto, I read a decent amount of material but still struggled to grasp some of the concepts. So, being a firm believer in the notion that the best way to understand something is by doing it, I decided to code it from scratch.
+A while ago I decided I really wanted to understand how Bitcoin works. So, being a firm believer in the notion that the best way to understand something is by doing it, I decided to code it from scratch.
 
 ## Examples
 
