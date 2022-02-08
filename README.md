@@ -72,8 +72,8 @@ aaf1a4fa390bdbfcf543a0ace7b93e406d78667ca32568edcb01e7598e3828d4 - Script([118, 
 Index: 1
 Num Outputs: 2
 Outputs:
-250000 SAT - Script([118, 169, 'c3ed7acbba3080a947ce28eab9789cb0273cf8cf', 136, 172])
-440000 SAT - Script([118, 169, '32cf8a0b81f63473be3f88efe281f4b1f13c857e', 136, 172])
+25000 SAT - Script([118, 169, 'c3ed7acbba3080a947ce28eab9789cb0273cf8cf', 136, 172])
+44000 SAT - Script([118, 169, '32cf8a0b81f63473be3f88efe281f4b1f13c857e', 136, 172])
 Locktime: 0
 ```
 
