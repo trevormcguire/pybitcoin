@@ -1,6 +1,6 @@
 # Bitcoin From Scratch 
 
-A while ago I decided I really wanted to understand how Bitcoin works. So, being a firm believer in the notion that the best way to understand something is by doing it, I decided to code it from scratch.
+A while ago I decided I really wanted to understand how Bitcoin works. As someone who has always been interested in crypto, I read a decent amount of material but still struggled to grasp some of the concepts. So, being a firm believer in the notion that the best way to understand something is by doing it, I decided to code it from scratch.
 
 ## Examples
 
@@ -60,8 +60,8 @@ Construct Transactions
 ```
 >>> ins = [{"prev_tx":bytes.fromhex(prev_tx_id), "prev_idx":prev_idx, "script_sig": p2pkh_script(base58.decode(wallet1)), "seq":0xffffffff}]
 >>> outs = [
-... {"amount":250000, "script_pubkey":p2pkh_script(base58.decode(wallet2))},
-... {"amount":440000, "script_pubkey":p2pkh_script(base58.decode(wallet1))}
+... {"amount":25000, "script_pubkey":p2pkh_script(base58.decode(wallet2))},
+... {"amount":44000, "script_pubkey":p2pkh_script(base58.decode(wallet1))}
 ... ]
 >>> tx = Tx(version=1, inputs=ins, outputs=outs)
 >>> tx
